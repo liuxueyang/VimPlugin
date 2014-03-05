@@ -98,3 +98,4 @@ let g:user_emmet_settings = {
 			\},
 			\}
 
+source ~/.vim/bundle/cscope_maps.vim
