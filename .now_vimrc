@@ -96,4 +96,9 @@ let g:user_emmet_settings = {
 			\'extends' : 'html',
 			\},
 			\}
+<<<<<<< HEAD
 let NERDTreeWinSize=17
+=======
+
+source ~/.vim/bundle/cscope_maps.vim
+>>>>>>> 73140bd952fd52ad2c8ef1f216c1bd0ac30541cf
