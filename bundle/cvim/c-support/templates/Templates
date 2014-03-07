@@ -2,13 +2,16 @@
 §  User Macros
 § ==========================================================
 
-SetMacro( 'AUTHOR',      'YOUR NAME' )
-SetMacro( 'AUTHORREF',   '' )
+SetMacro( 'AUTHOR',      'Liu Xue Yang' )
+SetMacro( 'AUTHORREF',   'LXY' )
 SetMacro( 'COMPANY',     '' )
-SetMacro( 'COPYRIGHT',   '' )
-SetMacro( 'EMAIL',       '' )
-SetMacro( 'LICENSE',     '' )
-SetMacro( 'ORGANIZATION','' )
+SetMacro( 'COPYRIGHT',   'Copyright (c) |YEAR|, |AUTHOR|' )
+SetMacro( 'EMAIL',       'liuxueyang457@163.com' )
+SetMacro( 'LICENSE',     'GNU General Public License' )
+SetMacro( 'ORGANIZATION','Hunan University' )
+SetFormat( 'DATE', '%D'      )
+SetFormat( 'TIME', '%H:%M'   )
+SetFormat( 'YEAR', 'year %Y' )
 
 SetStyle( 'C' )
 
@@ -32,11 +35,11 @@ IncludeFile( 'snippets.template' )
 § different comments for styles "C", "CPP" and "Doxygen":
 
 == USE STYLES : C ==
-IncludeFile( 'c.comments.template' )
+IncludeFile( 'c.comments.template'     )
 == ENDSTYLES ==
 
 == USE STYLES : CPP ==
-IncludeFile( 'cpp.comments.template' )
+IncludeFile( 'cpp.comments.template'     )
 == ENDSTYLES ==
 
 §sets the style "Doxygen" internally

@@ -19,6 +19,7 @@ static void<CURSOR>
 <SPLIT>	return <+return_value+>;
 }		// -----  end of static function |FUNCTION_NAME|  -----
 == Idioms.main == map:im, shortcut:m  ==
+#include	<stdio.h>
 #include	<stdlib.h>
 
 // ===  FUNCTION  ======================================================================

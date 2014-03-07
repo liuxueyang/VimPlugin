@@ -2,11 +2,10 @@
 "www.cnblogs.com/liuxueyang/
 "Hunan University
 
-
 " ********************SET********************
-color darkblue
+color desert
 set nocompatible
-set guifont=Monaco:h18
+set guifont=Monaco:h19
 set nu numberwidth=5
 set cindent
 set ai
@@ -42,7 +41,6 @@ vnoremap \ U
 inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>veU
 inoremap <D> <esc>
-"inoremap <esc> <nop>
 "括号,引号自动补全
 inoremap ( ()<esc>i
 inoremap ) <c-r>=ClosePair(')')<cr>
@@ -59,13 +57,6 @@ onoremap b /return<cr>
 iabbrev @@ www.cnblogs.com/liuxueyang/
 iabbrev ccopy Copyright 2013 Xueyang Liu, all rights reserved.
 autocmd BufWritePre *.html :normal gg=G
-"下面这些autocmd还没有学会=_=
-"autocmd FileType C++ nnoremap <buffer> <localleader>c I//<esc>
-"autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-"autocmd FileType javascript :iabbrev <buffer> iff if()<left>
-"autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-"autocmd FileType python : iabbrev <buffer> iff if:<left>
-"echo ">^.^<"
 
 "pathogen{
 execute pathogen#infect()
@@ -96,9 +87,37 @@ let g:user_emmet_settings = {
 			\'extends' : 'html',
 			\},
 			\}
-<<<<<<< HEAD
-let NERDTreeWinSize=17
-=======
+"let NERDTreeWinSize=17
 
-source ~/.vim/bundle/cscope_maps.vim
->>>>>>> 73140bd952fd52ad2c8ef1f216c1bd0ac30541cf
+
+"csupport{
+let g:C_Dictionary_File = '~/.vim/bundle/cvim/c-support/wordlists/c-c++-keywords.list,'.
+		 \                   '~/.vim/bundle/cvim/c-support/wordlists/k+r.list,'.
+		 \                   '~/.vim/bundle/cvim/c-support/wordlists/stl_index.list'
+"
+"-------------------------------------------------------------------
+" taglist.vim : toggle the taglist window
+" taglist.vim : define the title texts for make
+" taglist.vim : define the title texts for qmake
+"-------------------------------------------------------------------
+noremap <silent> <F11>  <Esc><Esc>:Tlist<CR>
+inoremap <silent> <F11>  <Esc><Esc>:Tlist<CR>
+
+let tlist_make_settings  = 'make;m:makros;t:targets;i:includes'
+let tlist_qmake_settings = 'qmake;t:SystemVariables'
+
+if has("autocmd")
+	" ----------  qmake : set file type for *.pro  ----------
+	autocmd BufNewFile,BufRead *.pro  set filetype=qmake
+endif " has("autocmd")
+let tlist_template_settings  = 'template;t:template'
+"---------------------------------------------------------------
+" plugin templates : set filetype for *.template
+"---------------------------------------------------------------
+if has("autocmd")
+	autocmd BufNewFile,BufRead Templates  set filetype=template
+	autocmd BufNewFile,BufRead *.template  set filetype=template
+endif " has("autocmd")
+"let g:C_GuiSnippetBrowser = 'commandline'
+"let g:C_CreateMenusDelayed = 'yes'
+"}

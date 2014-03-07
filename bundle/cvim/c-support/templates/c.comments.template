@@ -45,40 +45,25 @@
 == Comments.file description impl == map:cfdi, shortcut:c, start, noindent ==
 /*
  * =====================================================================================
- *
- *       Filename:  |FILENAME|
- *
- *    Description:  <CURSOR>
- *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
- *   Organization:  |ORGANIZATION|
- *
+ *       Filename : |FILENAME|
+ *    Description : <CURSOR>
+ *        Created : |DATE| |TIME|
+ *         Author : |AUTHOR| (|AUTHORREF|), |EMAIL|
+ *         Motto  : How about today?
  * =====================================================================================
  */
-
+<+PART+>
 == Comments.file description header == map:cfdh, shortcut:h, start, noindent ==
 /*
  * =====================================================================================
- *
- *       Filename:  |FILENAME|
- *
- *    Description:  <CURSOR>
- *
- *        Version:  1.0
- *        Created:  |DATE| |TIME|
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  |AUTHOR| (|AUTHORREF|), |EMAIL|
- *   Organization:  |ORGANIZATION|
- *
+ *       Filename : |FILENAME|
+ *    Description : <CURSOR>
+ *        Created : |DATE| |TIME|
+ *         Author : |AUTHOR| (|AUTHORREF|), |EMAIL|
+ *         Motto  : How about today?
  * =====================================================================================
  */
+<+PART+>
 == ENDTEMPLATE ==
 
 == LIST: comments_c_sections == hash ==
