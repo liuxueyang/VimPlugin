@@ -43,10 +43,10 @@
 #include "<CURSOR>"
 §-------------------------------------------------------------------------
 == Preprocessor.define == map:pd, shortcut:d, insert ==
-#define	<CURSOR>			/*  */
+#define	<CURSOR>			/* <+comment+> */
 §-------------------------------------------------------------------------
 == Preprocessor.undefine == map:pu, shortcut:u, insert ==
-#undef	<CURSOR>			/*  */
+#undef	<CURSOR>			/* <+comment+> */
 §-------------------------------------------------------------------------
 == Preprocessor.if-endif == map:pif, shortcut:i ==
 #if  |?CONDITION:u|

@@ -39,6 +39,7 @@ else {
 while ( <CURSOR> )
 == Statements.while block == map:swh, shortcut:h  ==
 while ( <CURSOR> ) {
+	<+insert+>
 <SPLIT>}
 == Statements.switch == map:ss, shortcut:s  ==
 switch ( <CURSOR> ) {
