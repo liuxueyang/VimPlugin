@@ -2,13 +2,13 @@
 §  User Macros
 § =============================================================
 
-SetMacro( 'AUTHOR',      'YOUR NAME' )
-SetMacro( 'AUTHORREF',   '' )
+SetMacro( 'AUTHOR',      'liuxueyang' )
+SetMacro( 'AUTHORREF',   'lxy' )
 SetMacro( 'COMPANY',     '' )
 SetMacro( 'COPYRIGHT',   '' )
-SetMacro( 'EMAIL',       '' )
+SetMacro( 'EMAIL',       'liuxueyang457@163.com' )
 SetMacro( 'LICENSE',     '' )
-SetMacro( 'ORGANIZATION','' )
+SetMacro( 'ORGANIZATION','Hunan University' )
 
 SetFormat( 'DATE', '%x' )
 SetFormat( 'TIME', '%H:%M' )
