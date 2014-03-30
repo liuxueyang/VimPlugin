@@ -23,6 +23,11 @@ static <+type+>
 <SPLIT>	return <+return_value+>;
 }		/* -----  end of static function |FUNCTION_NAME|  ----- */
 == Idioms.main == map:im, shortcut:m  ==
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name: main
+ * =====================================================================================
+ */
 
 int
 main ( int argc, char *argv[] )
