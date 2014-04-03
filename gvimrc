@@ -2,10 +2,11 @@
 "www.cnblogs.com/liuxueyang/
 "Hunan University
 
+
 " ********************SET********************
 color desert
 set nocompatible
-set guifont=Monaco:h19
+set guifont=Sans:h10
 set nu numberwidth=5
 set cindent
 set ai
@@ -42,21 +43,35 @@ inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>veU
 inoremap <D> <esc>
 "括号,引号自动补全
-inoremap ( ()<esc>i
-inoremap ) <c-r>=ClosePair(')')<cr>
-inoremap { {}<esc>i
-inoremap } <c-r>=ClosePair('}')<cr>
-inoremap [ []<esc>i
-inoremap ] <c-r>=ClosePair(']')<cr> 
-inoremap " ""<esc>i
-inoremap ' ''<esc>i
+:inoremap ( ()<esc>i
+:inoremap ) <c-r>=ClosePair(')')<cr>
+:inoremap { {}<esc>i
+:inoremap } <c-r>=ClosePair('}')<cr>
+:inoremap [ []<esc>i
+:inoremap ] <c-r>=ClosePair(']')<cr> 
+:inoremap " ""<esc>i
+:inoremap ' ''<esc>i
 onoremap p i(
 onoremap b /return<cr>
 
+""function ClosePair(char)
+""	if getline('.')[col('.') - 1] == a:char
+""		return "\<Right>"
+""	else
+""		return a:char
+""endf
+""
 " ********************OTHER********************
 iabbrev @@ www.cnblogs.com/liuxueyang/
 iabbrev ccopy Copyright 2013 Xueyang Liu, all rights reserved.
 autocmd BufWritePre *.html :normal gg=G
+"下面这些autocmd还没有学会=_=
+"autocmd FileType C++ nnoremap <buffer> <localleader>c I//<esc>
+"autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+"autocmd FileType javascript :iabbrev <buffer> iff if()<left>
+"autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+"autocmd FileType python : iabbrev <buffer> iff if:<left>
+"echo ">^.^<"
 
 "pathogen{
 execute pathogen#infect()
@@ -66,6 +81,7 @@ call pathogen#runtime_append_all_bundles()
 
 
 "taglist{
+		let Tlist_File_Fold_Auto_Close=1
     let Tlist_Show_One_File = 1            "只显示当前文件的taglist，默认是显示多个
     let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
     let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
@@ -87,53 +103,37 @@ let g:user_emmet_settings = {
 			\'extends' : 'html',
 			\},
 			\}
-"let NERDTreeWinSize=17
 
+source ~/.vim/bundle/cscope_maps.vim
+let g:pydoc_cmd = '/usr/bin/pydoc3.2'
+map <leader>r :w<CR>:!python3 %<CR>
 
-"csupport{
-let g:C_Dictionary_File = '~/.vim/bundle/cvim/c-support/wordlists/c-c++-keywords.list,'.
-		 \                   '~/.vim/bundle/cvim/c-support/wordlists/k+r.list,'.
-		 \                   '~/.vim/bundle/cvim/c-support/wordlists/stl_index.list'
-"
-"-------------------------------------------------------------------
-" taglist.vim : toggle the taglist window
-" taglist.vim : define the title texts for make
-" taglist.vim : define the title texts for qmake
-"-------------------------------------------------------------------
-noremap <silent> <F11>  <Esc><Esc>:Tlist<CR>
-inoremap <silent> <F11>  <Esc><Esc>:Tlist<CR>
+:nmap <Leader>we <Plug>VimwikiSplitLink
+:nmap <Leader>wq <Plug>VimwikiVSplitLink
+":nmap <Leader>wt <Plug>VimwikiTabnewLink
+let NERDTreeWinSize=22
+let g:C_ExeExtension = '.exe'
 
-let tlist_make_settings  = 'make;m:makros;t:targets;i:includes'
-let tlist_qmake_settings = 'qmake;t:SystemVariables'
+"{tex
 
-if has("autocmd")
-	" ----------  qmake : set file type for *.pro  ----------
-	autocmd BufNewFile,BufRead *.pro  set filetype=qmake
-endif " has("autocmd")
-let tlist_template_settings  = 'template;t:template'
-"---------------------------------------------------------------
-" plugin templates : set filetype for *.template
-"---------------------------------------------------------------
-if has("autocmd")
-	autocmd BufNewFile,BufRead Templates  set filetype=template
-	autocmd BufNewFile,BufRead *.template  set filetype=template
-endif " has("autocmd")
-let g:C_GuiSnippetBrowser = 'commandline'
-"let g:C_CreateMenusDelayed = 'yes'
-"}
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
 
-"==============================
-"VimWiKi{
-"
-"nmap <leader>tt <Plug>VimwikiToggleListItem
-let wiki_1 = {}
-let wiki_1.path = '~/vimwiki'
-let wiki_1.path_html = '~/vimwiki_html'
-let wiki_2 = {}
-let wiki_2.path = '~/vimwiki/Blog'
-let wiki_2.path_html = '~/Learn/MyBlog/liuxueyang.github.io'
-let g:vimwiki_list = [wiki_1, wiki_2]
-"
-"}
-"==============================
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
 
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+"tex}
