@@ -4,15 +4,9 @@
 
 
 " ********************SET********************
-"color lucius
-"color evening
-"color koehler
-"color desert
-color darkblue
-"set background=dark
+color desert
 set nocompatible
-set guifont=Monaco:h18
-"set lines=30 columns=94
+set guifont=Sans:h10
 set nu numberwidth=5
 set cindent
 set ai
@@ -29,8 +23,6 @@ syntax enable
 filetype plugin indent on
 filetype indent on
 filetype plugin on
-"filetype on
-"set bg=dark
 
 " ********************MAP********************
 let mapleader=","
@@ -50,19 +42,25 @@ vnoremap \ U
 inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>veU
 inoremap <D> <esc>
-"inoremap <esc> <nop>
 "括号,引号自动补全
-inoremap ( ()<esc>i
-inoremap ) <c-r>=ClosePair(')')<cr>
-inoremap { {}<esc>i
-inoremap } <c-r>=ClosePair('}')<cr>
-inoremap [ []<esc>i
-inoremap ] <c-r>=ClosePair(']')<cr> 
-inoremap " ""<esc>i
-inoremap ' ''<esc>i
+:inoremap ( ()<esc>i
+:inoremap ) <c-r>=ClosePair(')')<cr>
+:inoremap { {}<esc>i
+:inoremap } <c-r>=ClosePair('}')<cr>
+:inoremap [ []<esc>i
+:inoremap ] <c-r>=ClosePair(']')<cr> 
+:inoremap " ""<esc>i
+:inoremap ' ''<esc>i
 onoremap p i(
 onoremap b /return<cr>
 
+""function ClosePair(char)
+""	if getline('.')[col('.') - 1] == a:char
+""		return "\<Right>"
+""	else
+""		return a:char
+""endf
+""
 " ********************OTHER********************
 iabbrev @@ www.cnblogs.com/liuxueyang/
 iabbrev ccopy Copyright 2013 Xueyang Liu, all rights reserved.
@@ -75,50 +73,15 @@ autocmd BufWritePre *.html :normal gg=G
 "autocmd FileType python : iabbrev <buffer> iff if:<left>
 "echo ">^.^<"
 
-" ********************编译 && 运行********************
-" Compile
-""func! CompileCode()
-""	exec "w"
-""	if &filetype == "c"
-""		exec "!gcc -Wall -std=c99 %<.c -o %<"
-""	elseif &filetype == "cpp"
-""		exec "!g++ -Wall -std=c++98 %<.cpp -o %<"
-""	elseif &filetype == "python"
-""		exec "!python %<.py"
-""	elseif &filetype == "java"
-""		exec "!javac %<.java"
-""	elseif &filetype == "sh"
-""		exec "!bash %<.sh"
-""	elseif &filetype == "ruby"
-""		exec "!ruby %<.rb"
-""	elseif &filetype == "perl"
-""		exec "!perl %<.perl"
-""	endif
-""endfunc
-"Run
-""func! RunCode()
-""	exec "w"
-""	if &filetype == "c" || &filetype == "cpp"
-""		exec "! ./%<"
-""	elseif &filetype == "python"
-""		exec "!python %<.py"
-""	elseif &filetype == "java"
-""		exec "!java %<"
-""	endif
-""endfunc
-"<c-c> OneKey ComplieAndSave
-""nnoremap <c-c> :call CompileCode()<cr>
-""inoremap <c-c> <esc>:call CompileCode()<cr>
-""vnoremap <c-c> <esc>:call CompileCode()<cr>
-"<c-r> OneKey RunAndSave
-""nnoremap <c-r> :call RunCode()<cr>
-""inoremap <c-r> <esc>:call RunCode()<cr>
-""vnoremap <c-r> <esc>:call RunCode()<cr>
 "pathogen{
 execute pathogen#infect()
 call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
 "}
+
+
 "taglist{
+		let Tlist_File_Fold_Auto_Close=1
     let Tlist_Show_One_File = 1            "只显示当前文件的taglist，默认是显示多个
     let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
     let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
@@ -126,7 +89,6 @@ call pathogen#infect()
     let Tlist_Ctags_Cmd='/opt/local/bin/ctags'  "设置ctags命令的位置
     nnoremap <leader>tl : Tlist<CR>        "设置关闭和打开taglist窗口的快捷键
 "}
-"set ft=txtfmt
 
 
 let g:user_emmet_settings = {
@@ -142,3 +104,36 @@ let g:user_emmet_settings = {
 			\},
 			\}
 
+source ~/.vim/bundle/cscope_maps.vim
+let g:pydoc_cmd = '/usr/bin/pydoc3.2'
+map <leader>r :w<CR>:!python3 %<CR>
+
+:nmap <Leader>we <Plug>VimwikiSplitLink
+:nmap <Leader>wq <Plug>VimwikiVSplitLink
+":nmap <Leader>wt <Plug>VimwikiTabnewLink
+let NERDTreeWinSize=22
+let g:C_ExeExtension = '.exe'
+
+"{tex
+
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: This enables automatic indentation as you type.
+filetype indent on
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+"tex}
