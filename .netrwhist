@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/lxy/Learn/Algorithm/DP'
 let g:netrw_dirhist_2='/home/lxy/.vim/bundle'
 let g:netrw_dirhist_3='/home/lxy/.vim/bundle/cvim'
 let g:netrw_dirhist_4='/home/lxy/.vim'
+let g:netrw_dirhist_5='/Users/lxy/Hack/c++/DFA'
