@@ -4,15 +4,11 @@
 
 
 " ********************SET********************
-<<<<<<< HEAD
-color darkblue
+color desert
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk
 set nocompatible
 set guifont=Monaco:h19
-=======
-color desert
-set nocompatible
-set guifont=Sans:h10
->>>>>>> 765623974f317d40433231002f7a7b73a90edba6
 set nu numberwidth=5
 set cindent
 set ai
@@ -119,30 +115,35 @@ map <leader>r :w<CR>:!python3 %<CR>
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
 let g:C_ExeExtension = '.exe'
-<<<<<<< HEAD
-=======
 
-"{tex
+"cscope
+if has("cscope")
+	set csprg=/usr/local/bin/cscope
+	set csto=0
+	set cst
+	set nocsverb
+	" add any database in current directory
+	if filereadable("cscope.out")
+			cs add cscope.out
+	" else add database pointed to by environment
+	elseif $CSCOPE_DB != ""
+			cs add $CSCOPE_DB
+	endif
+	set csverb
+endif
+"
 
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
+let g:instant_markdown_autostart = 1
 
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-"tex}
->>>>>>> 765623974f317d40433231002f7a7b73a90edba6
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+ 
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
