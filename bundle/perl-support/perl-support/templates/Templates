@@ -2,13 +2,13 @@
 §  User Macros
 § ==========================================================
 
-SetMacro( 'AUTHOR',      'YOUR NAME' )
-SetMacro( 'AUTHORREF',   '' )
+SetMacro( 'AUTHOR',      'Phoenix Ikki' )
+SetMacro( 'AUTHORREF',   'liuxueyang.github.io' )
 SetMacro( 'COMPANY',     '' )
 SetMacro( 'COPYRIGHT',   '' )
-SetMacro( 'EMAIL',       '' )
+SetMacro( 'EMAIL',       'liuxueyang457@gmail.com' )
 SetMacro( 'LICENSE',     '' )
-SetMacro( 'ORGANIZATION','' )
+SetMacro( 'ORGANIZATION','Hunan University' )
 
 SetStyle( 'default' )
 

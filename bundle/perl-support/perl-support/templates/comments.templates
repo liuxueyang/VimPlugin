@@ -29,27 +29,16 @@
 == Comments.file description pl == map:chpl, sc:d, start, noindent ==
 #!/usr/bin/env perl 
 #===============================================================================
-#
 #         FILE: |FILENAME|
-#
-#        USAGE: ./|FILENAME|  
-#
-#  DESCRIPTION: <CURSOR>
-#
-#      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
-#        NOTES: ---
 #       AUTHOR: |AUTHOR| (|AUTHORREF|), |EMAIL|
 # ORGANIZATION: |ORGANIZATION|
-#      VERSION: 1.0
 #      CREATED: |DATE| |TIME|
-#     REVISION: ---
 #===============================================================================
 
 use strict;
 use warnings;
 use utf8;
+<CURSOR>
 
 == Comments.file description pm == map:chpm, sc:d, start, noindent ==
 #
