@@ -1,9 +1,6 @@
 == Idioms.function == map:if, shortcut:f  ==
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name:  |?FUNCTION_NAME|
+/*  Name:  |?FUNCTION_NAME|
  *  Description:  <CURSOR>
- * =====================================================================================
  */
 <+type+>
 |FUNCTION_NAME| ( <+argument_list+> )
@@ -23,11 +20,6 @@ static <+type+>
 <SPLIT>	return <+return_value+>;
 }		/* -----  end of static function |FUNCTION_NAME|  ----- */
 == Idioms.main == map:im, shortcut:m  ==
-/* 
- * ===  FUNCTION  ======================================================================
- *         Name: main
- * =====================================================================================
- */
 
 int
 main ( int argc, char *argv[] )
