@@ -24,5 +24,7 @@ done
 
 cd ~/vimwiki/
 onepush
+cd ~/.vim
+onepush
 
 exit 0
