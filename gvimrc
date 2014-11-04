@@ -22,3 +22,4 @@ set guioptions-=T
 "remove menu"
 set guioptions-=m
 hi LineNr guifg=#857b6f guibg=#000000 gui=none
+:inoremap ( ()<esc>i
