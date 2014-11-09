@@ -6,4 +6,8 @@ let g:netrw_dirhist_3='/home/lxy/.vim/bundle/cvim'
 let g:netrw_dirhist_4='/home/lxy/.vim'
 let g:netrw_dirhist_5='/Users/lxy/Hack/c++/DFA'
 let g:netrw_dirhist_6='/home/snowsun/Hack/SedAwk/asm/hexdump1'
+<<<<<<< HEAD
 let g:netrw_dirhist_7='/Users/lxy/bin'
+=======
+let g:netrw_dirhist_7='/tmp'
+>>>>>>> 470d1dcb6363f767f2da03935dfa6fc4170c7265

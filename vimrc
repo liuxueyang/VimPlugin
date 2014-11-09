@@ -56,13 +56,13 @@ inoremap <D> <esc>
 onoremap p i(
 onoremap b /return<cr>
 
-""function ClosePair(char)
-""	if getline('.')[col('.') - 1] == a:char
-""		return "\<Right>"
-""	else
-""		return a:char
-""endf
-""
+function ClosePair(char)
+	if getline('.')[col('.') - 1] == a:char
+		return "\<Right>"
+	else
+		return a:char
+endf
+
 " ********************OTHER********************
 iabbrev @@ www.cnblogs.com/liuxueyang/
 iabbrev ccopy Copyright 2013 Xueyang Liu, all rights reserved.
@@ -147,3 +147,19 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+set cursorline
+set cursorcolumn
+""if v:version > 700
+	""set cursorline
+	""hi CursorLine ctermbg=Black guibg=#771c1c
+	""hi CursorColumn ctermbg=Black guibg=#771c1c
+"""	call ExpextCursorSlowDown()
+""endif
+
+
+"
+"added 2014/11/04
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ [%p%%]\ [LEN=%L]
+set laststatus=2
+hi LineNr ctermfg=101 ctermbg=16 term=none
