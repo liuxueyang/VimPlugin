@@ -115,6 +115,7 @@ map <leader>r :w<CR>:!python3 %<CR>
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
 let g:C_ExeExtension = '.exe'
+let g:C_CFlags = '-D NDEBUG -Wall -g -O0 -c'
 
 "cscope
 if has("cscope")
