@@ -11,7 +11,8 @@ se background=dark
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set nocompatible
-set guifont=Monaco:h19
+"set guifont=Monaco:h19
+set guifont=Monospace\ 12
 set nu numberwidth=5
 set cindent
 set ai
@@ -26,6 +27,9 @@ se ruler
 set laststatus=2
 set cmdheight=2
 set nowrap
+"set foldmethod=indent
+set foldmethod=syntax
+set nofoldenable
 syntax on
 syntax enable
 filetype plugin indent on
@@ -167,3 +171,32 @@ let g:indent_guides_guide_size=1
 ""hi IndentGuidesOdd  guibg=white   ctermbg=3
 ""hi IndentGuidesEven guibg=lightgrey ctermbg=4
 :nmap <silent> <leader>i <Plug>IndentGuidesToggle
+
+nmap <leader>ch :A<CR>
+nmap <leader>sch :AS<CR>
+
+"vim-signature"
+
+let g:SignatureMap = {
+  \ 'Leader'	     :  "m",
+  \ 'PlaceNextMark'      :  "m,",
+  \ 'ToggleMarkAtLine'   :  "m.",
+  \ 'PurgeMarksAtLine'   :  "m-",
+  \ 'DeleteMark'	 :  "dm",
+  \ 'PurgeMarks'	 :  "mda",
+  \ 'PurgeMarkers'       :  "m<BS>",
+  \ 'GotoNextLineAlpha'  :  "']",
+  \ 'GotoPrevLineAlpha'  :  "'[",
+  \ 'GotoNextSpotAlpha'  :  "`]",
+  \ 'GotoPrevSpotAlpha'  :  "`[",
+  \ 'GotoNextLineByPos'  :  "]'",
+  \ 'GotoPrevLineByPos'  :  "['",
+  \ 'GotoNextSpotByPos'  :  "mn",
+  \ 'GotoPrevSpotByPos'  :  "mp",
+  \ 'GotoNextMarker'     :  "[+",
+  \ 'GotoPrevMarker'     :  "[-",
+  \ 'GotoNextMarkerAny'  :  "]=",
+  \ 'GotoPrevMarkerAny'  :  "[=",
+  \ 'ListLocalMarks'     :  "ms",
+  \ 'ListLocalMarkers'   :  "m?"
+  \ }
