@@ -151,6 +151,7 @@ endfunction
 
 set cursorline
 set cursorcolumn
+"
 ""if v:version > 700
 	""set cursorline
 	""hi CursorLine ctermbg=Black guibg=#771c1c
