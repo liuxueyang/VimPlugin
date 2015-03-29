@@ -21,6 +21,8 @@ map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 set guioptions-=T
 "remove menu"
 set guioptions-=m
+set gcr=a:block-blinkon0
 hi LineNr guifg=#857b6f guibg=#000000 gui=none
-"au GUIEnter * call libcallnr("vimtweak.dll", "SetAlpha", 234)inoremap ( ()<esc>i
-let g:C_CFlags = '-D NDEBUG -Wall -g -O0 -c'
+:inoremap ( ()<esc>i
+se background=dark
+let g:Powerline_colorscheme='solarized256'
