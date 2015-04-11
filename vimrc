@@ -16,10 +16,11 @@ set guifont=Monospace\ 12
 set nu numberwidth=5
 set cindent
 set ai
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
-set softtabstop=4
+set softtabstop=2
+set autoindent
 set mouse=a
 set autochdir
 se hlsearch incsearch 
@@ -53,6 +54,9 @@ nmap <leader>p "+p
 nmap <leader>q :q<CR>
 nmap <leader>xa :xa<CR>
 nmap <leader>w :w<CR>
+nmap <leader>e :e 
+nmap <leader>s :sp<CR>
+nmap <leader>v :vs<CR>
 nnoremap nw <C-w><C-w>
 nnoremap <leader>lw <C-w>l
 nnoremap <leader>hw <C-w>h
@@ -69,6 +73,7 @@ vnoremap \ U
 inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>veU
 inoremap <D> <esc>
+imap <S-CR> <CR><CR>end<Esc>-cc
 "括号,引号自动补全
 :inoremap ( ()<esc>i
 :inoremap ) <c-r>=ClosePair(')')<cr>
