@@ -1,4 +1,7 @@
+"On linux"
 set guifont=Monospace\ 12
+"on Mac"
+"set guifont=Monaco:h13
 if v:version > 700
 	set cursorline
 	hi CursorLine ctermbg=Red guibg=#771c1c
