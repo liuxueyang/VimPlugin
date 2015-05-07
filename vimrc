@@ -208,3 +208,5 @@ let g:SignatureMap = {
 
 
 :let did_install_default_menus = 1
+hi CursorLine ctermbg=Red guibg=#771c1c
+hi CursorColumn ctermbg=Red guibg=#771c1c

@@ -19,9 +19,9 @@ map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 \set guioptions+=m <Bar>
 \endif<CR>
 "remove toolbar"
-""set guioptions-=T
+set guioptions-=T
 "remove menu"
-""set guioptions-=m
+set guioptions-=m
 set gcr=a:block-blinkon0
 hi LineNr guifg=#857b6f guibg=#000000 gui=none
 :inoremap ( ()<esc>i
