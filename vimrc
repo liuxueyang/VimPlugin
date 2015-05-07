@@ -205,3 +205,6 @@ let g:SignatureMap = {
   \ 'ListLocalMarks'     :  "ms",
   \ 'ListLocalMarkers'   :  "m?"
   \ }
+
+
+:let did_install_default_menus = 1

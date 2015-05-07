@@ -1,6 +1,7 @@
 set guifont=Monospace\ 12
 if v:version > 700
 	set cursorline
+  set cursorcolumn
 	hi CursorLine ctermbg=Red guibg=#771c1c
 	hi CursorColumn ctermbg=Red guibg=#771c1c
 "	call ExpextCursorSlowDown()
@@ -18,11 +19,17 @@ map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 \set guioptions+=m <Bar>
 \endif<CR>
 "remove toolbar"
-set guioptions-=T
+""set guioptions-=T
 "remove menu"
-set guioptions-=m
+""set guioptions-=m
 set gcr=a:block-blinkon0
 hi LineNr guifg=#857b6f guibg=#000000 gui=none
 :inoremap ( ()<esc>i
 se background=dark
 let g:Powerline_colorscheme='solarized256'
+
+set vb t_vb=
+
+:match ErrorMsg /\%>70v.\+/
+hi CursorLine ctermbg=Red guibg=#771c1c
+hi CursorColumn ctermbg=Red guibg=#771c1c
