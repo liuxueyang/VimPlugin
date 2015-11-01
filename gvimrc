@@ -30,6 +30,6 @@ let g:Powerline_colorscheme='solarized256'
 
 set vb t_vb=
 
-:match ErrorMsg /\%>70v.\+/
-hi CursorLine ctermbg=Red guibg=#771c1c
-hi CursorColumn ctermbg=Red guibg=#771c1c
+":match ErrorMsg /\%>70v.\+/
+"hi CursorLine ctermbg=LightGreen guibg=#771c1c
+"hi CursorColumn ctermbg=Red guibg=#771c1c

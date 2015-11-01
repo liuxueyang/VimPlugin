@@ -4,13 +4,13 @@
 
 
 " ********************SET********************
-color molokai
-"color solarized
+"color molokai
+color solarized
 se background=dark
 "se background=light
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
-set nocompatible
+""set nocompatible
 "set guifont=Monaco:h19
 set guifont=Monospace\ 12
 set nu numberwidth=5
@@ -33,7 +33,7 @@ set foldmethod=syntax
 set nofoldenable
 syntax on
 syntax enable
-filetype plugin indent on
+""filetype plugin indent on
 ""filetype indent on
 ""filetype plugin on
 
@@ -65,8 +65,8 @@ nnoremap <leader>kw <C-w>k
 nnoremap <leader>jw <C-w>j
 nmap <leader>pa %
 "在某个单词上加上引号，括号
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+"nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+"nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>< viw<esc>a><esc>'<i<<esc>lw
 "~~~~~~~~~~~~~~~大风歌~~~~~~~~~~~~~~~
 vnoremap \ U
@@ -164,8 +164,6 @@ hi LineNr ctermfg=101 ctermbg=16 term=none
 
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-autocmd BufRead *.lsp,*.lisp so ~/.vim/bundle/VIlisp-2.3/VIlisp.vim
-
 "vim-indent-guides"
 let g:indent_guides_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup=1
@@ -208,5 +206,5 @@ let g:SignatureMap = {
 
 
 :let did_install_default_menus = 1
-hi CursorLine ctermbg=Red guibg=#771c1c
-hi CursorColumn ctermbg=Red guibg=#771c1c
+"hi CursorLine ctermbg=Red guibg=#771c1c
+"hi CursorColumn ctermbg=Red guibg=#771c1c
