@@ -1,4 +1,4 @@
-set guifont=Monospace\ 12
+set guifont=Inconsolata\ 11
 if v:version > 700
 	set cursorline
   set cursorcolumn

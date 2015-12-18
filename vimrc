@@ -5,12 +5,13 @@
 
 " ********************SET********************
 "color molokai
-color solarized
+"color solarized
+color darkblue
 se background=dark
 "se background=light
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
-""set nocompatible
+set nocompatible
 "set guifont=Monaco:h19
 set guifont=Monospace\ 12
 set nu numberwidth=5
@@ -33,9 +34,7 @@ set foldmethod=syntax
 set nofoldenable
 syntax on
 syntax enable
-""filetype plugin indent on
-""filetype indent on
-""filetype plugin on
+filetype plugin indent on
 
 " ********************MAP********************
 let mapleader=","
@@ -86,7 +85,7 @@ imap <S-CR> <CR><CR>end<Esc>-cc
 onoremap p i(
 onoremap b /return<cr>
 
-function ClosePair(char)
+function! ClosePair(char)
 	if getline('.')[col('.') - 1] == a:char
 		return "\<Right>"
 	else
@@ -208,3 +207,26 @@ let g:SignatureMap = {
 :let did_install_default_menus = 1
 "hi CursorLine ctermbg=Red guibg=#771c1c
 "hi CursorColumn ctermbg=Red guibg=#771c1c
+
+""let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
+""\ 'path_html': '~/Dropbox/vimwiki_html/',
+""\ 'template_path': '~/Dropbox/vimwiki_template/',
+""\ 'template_default': 'def_template',
+""\ 'template_ext': '.html'}]
+
+let g:vimwiki_camel_case = 0
+let g:vimwiki_hl_cb_checked = 1
+let g:vimwiki_CJK_length = 1
+let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
+map <S-F4> :VimwikiAll2HTML<cr>
+map <F4> :Vimwiki2HTML<cr>
+
+
+:hi VimwikiHeader1 guifg=#FF0000
+:hi VimwikiHeader2 guifg=#00FF00
+:hi VimwikiHeader3 guifg=#0000FF
+:hi VimwikiHeader4 guifg=#FF00FF
+:hi VimwikiHeader5 guifg=#00FFFF
+:hi VimwikiHeader6 guifg=#FFFF00
+
+
