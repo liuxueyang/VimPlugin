@@ -4,9 +4,9 @@
 
 
 " ********************SET********************
-"color molokai
+color molokai
 "color solarized
-color darkblue
+"color darkblue
 se background=dark
 "se background=light
 let &termencoding=&encoding
