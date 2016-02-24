@@ -81,8 +81,8 @@ imap <S-CR> <CR><CR>end<Esc>-cc
 :inoremap } <c-r>=ClosePair('}')<cr>
 :inoremap [ []<esc>i
 :inoremap ] <c-r>=ClosePair(']')<cr> 
-:inoremap " ""<esc>i
-:inoremap ' ''<esc>i
+":inoremap " ""<esc>i
+":inoremap ' ''<esc>i
 onoremap p i(
 onoremap b /return<cr>
 

@@ -229,4 +229,3 @@ map <F4> :Vimwiki2HTML<cr>
 :hi VimwikiHeader5 guifg=#00FFFF
 :hi VimwikiHeader6 guifg=#FFFF00
 
-
