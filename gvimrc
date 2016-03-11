@@ -1,4 +1,11 @@
-set guifont=Inconsolata\ 11
+if has('mac')
+  set guifont=Monaco:h19
+elseif has('unix')
+  set guifont=Inconsolata\ 13
+else
+  set guifont=Inconsolata\ 13
+endif
+
 if v:version > 700
 	set cursorline
   set cursorcolumn
