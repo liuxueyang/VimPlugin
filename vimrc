@@ -4,8 +4,8 @@
 
 
 " ********************SET********************
-color molokai
-"color solarized
+"color molokai
+color solarized
 "color darkblue
 se background=dark
 "se background=light
@@ -213,6 +213,12 @@ let g:SignatureMap = {
 ""\ 'template_path': '~/Dropbox/vimwiki_template/',
 ""\ 'template_default': 'def_template',
 ""\ 'template_ext': '.html'}]
+
+let g:vimwiki_list = [{'path': '~/Blog/vimwiki/',
+\ 'path_html': '~/Blog/vimwiki_html/',
+\ 'template_path': '~/Blog/vimwiki_template/',
+\ 'template_default': 'def_template',
+\ 'template_ext': '.html'}]
 
 let g:vimwiki_camel_case = 0
 let g:vimwiki_hl_cb_checked = 1
