@@ -12,4 +12,4 @@ cp ~/.vim/gvimrc ~/.gvimrc
 
 The following picture is the my gvim:
 
-![Gvim](./img/gvim.png)
+![Gvim](./vim_pic.png)
