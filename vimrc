@@ -15,7 +15,7 @@ let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set nocompatible
 "set guifont=Monaco:h19
-set guifont=Monospace\ 12
+"set guifont=Monospace\ 12
 set nu numberwidth=5
 set cindent
 set ai
@@ -60,11 +60,11 @@ nmap <leader>e :e
 nmap <leader>s :sp<CR>
 nmap <leader>v :vs<CR>
 nnoremap nw <C-w><C-w>
-nnoremap <leader>lw <C-w>l
-nnoremap <leader>hw <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>h <C-w>h
 nnoremap <leader>on :only<CR>
-nnoremap <leader>kw <C-w>k
-nnoremap <leader>jw <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
 nmap <leader>pa %
 "在某个单词上加上引号，括号
 "nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
@@ -106,6 +106,15 @@ call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 "}
 
+if has('mac')
+  set guifont=Monaco:h19
+  let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'  "设置ctags命令的位置
+elseif has('unix')
+  set guifont=Inconsolata\ 13
+else
+  set guifont=Inconsolata\ 13
+  let Tlist_Ctags_Cmd='/usr/bin/ctags'  "设置ctags命令的位置
+endif
 
 "taglist{
 		let Tlist_File_Fold_Auto_Close=1
@@ -113,10 +122,8 @@ call pathogen#runtime_append_all_bundles()
     let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
     let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
     let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
-    let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'  "设置ctags命令的位置
     nnoremap <leader>tl : Tlist<CR>        "设置关闭和打开taglist窗口的快捷键
 "}
-
 
 let g:user_emmet_settings = {
 			\ 'php' : {
