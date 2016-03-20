@@ -4,8 +4,10 @@
 
 
 " ********************SET********************
+color inkpot
+"color blue
 "color molokai
-color solarized
+"color solarized
 "color darkblue
 se background=dark
 "se background=light
@@ -19,6 +21,7 @@ set cindent
 set ai
 set tabstop=2
 set shiftwidth=2
+set ts=2 sw=2 et "vim-indent set"
 set expandtab
 set softtabstop=2
 set autoindent
@@ -136,8 +139,7 @@ map <leader>r :w<CR>:!python3 %<CR>
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
 let g:C_ExeExtension = '.exe'
-
-let g:instant_markdown_autostart = 1
+let g:C_CFlags  = '-Wall -Wc++11-extensions -g -o0'
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
  
@@ -152,8 +154,8 @@ function! s:align()
   endif
 endfunction
 
-set cursorline
-set cursorcolumn
+"set cursorline
+"set cursorcolumn
 
 "
 "added 2014/11/04
@@ -234,4 +236,22 @@ map <F4> :Vimwiki2HTML<cr>
 :hi VimwikiHeader4 guifg=#FF00FF
 :hi VimwikiHeader5 guifg=#00FFFF
 :hi VimwikiHeader6 guifg=#FFFF00
+
+"vim-clang-format"
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+au FileType c ClangFormatAutoEnable
+nmap <Leader>fm :ClangFormat<CR>
+
 
