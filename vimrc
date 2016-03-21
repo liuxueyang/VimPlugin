@@ -261,4 +261,4 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 au FileType c ClangFormatAutoEnable
 nmap <Leader>fm :ClangFormat<CR>
 
-
+let g:Powerline_symbols = 'fancy'
