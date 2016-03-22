@@ -2,6 +2,8 @@
 "www.cnblogs.com/liuxueyang/
 "Hunan University
 
+"Update 2016/03/22 Lpaste"
+"liuxueyang.github.io
 
 " ********************SET********************
 color inkpot
@@ -53,6 +55,7 @@ nnoremap <c-t> :NERDTree<cr>
 nnoremap <c-a> :Tlist<cr>
 vnoremap <leader>y "+y
 nmap <leader>p "+p
+nmap <leader>ay ggVG"+y<C-o><C-o>
 nmap <leader>q :q<CR>
 nmap <leader>xa :xa<CR>
 nmap <leader>w :w<CR>
@@ -216,6 +219,12 @@ let g:SignatureMap = {
 :let did_install_default_menus = 1
 "hi CursorLine ctermbg=Red guibg=#771c1c
 "hi CursorColumn ctermbg=Red guibg=#771c1c
+hi CursorLine ctermbg=LightBlue
+":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=darkred guifg=white
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:nnoremap <Leader>c :set cursorline!<CR> guibg=#771c1c
 
 ""let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
 ""\ 'path_html': '~/Dropbox/vimwiki_html/',
