@@ -1,9 +1,8 @@
 "Copyright 2013 Xueyang Liu, all rights reserved.
-"www.cnblogs.com/liuxueyang/
+"liuxueyang.github.io
 "Hunan University
 
 "Update 2016/03/22 Lpaste"
-"liuxueyang.github.io
 
 " ********************SET********************
 color inkpot
@@ -99,9 +98,9 @@ function! ClosePair(char)
 endf
 
 " ********************OTHER********************
-iabbrev @@ www.cnblogs.com/liuxueyang/
-iabbrev ccopy Copyright 2013 Xueyang Liu, all rights reserved.
-autocmd BufWritePre *.html :normal gg=G
+iabbrev @@ liuxueyang.github.io
+"iabbrev ccopy Copyright 2015 Xueyang Liu, all rights reserved.
+"autocmd BufWritePre *.html :normal gg=G
 
 "pathogen{
 execute pathogen#infect()
@@ -112,11 +111,15 @@ call pathogen#runtime_append_all_bundles()
 if has('mac')
   set guifont=Monaco:h19
   let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'  "设置ctags命令的位置
+  let g:C_CCompiler = 'clang'
+  let g:C_CFlags  = '-std=c++11 -stdlib=libc++'
+  let g:C_CplusCompiler = 'clang++'
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
   set guifont=Inconsolata\ 13
   let Tlist_Ctags_Cmd='/usr/bin/ctags'  "设置ctags命令的位置
+  let g:C_CFlags  = '-Wall -std=c++11 -g'
 endif
 
 "taglist{
@@ -142,14 +145,16 @@ let g:user_emmet_settings = {
 			\}
 
 let g:pydoc_cmd = '/usr/bin/pydoc3.2'
-map <leader>r :w<CR>:!python3 %<CR>
+""map <leader>r :w<CR>:!python3 %<CR>
 
 :nmap <Leader>we <Plug>VimwikiSplitLink
 :nmap <Leader>wq <Plug>VimwikiVSplitLink
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
+
+"csupport Customization"
 let g:C_ExeExtension = '.exe'
-let g:C_CFlags  = '-Wall -Wc++11-extensions -g -o0'
+"let g:C_MapLeader  = ','
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
  
