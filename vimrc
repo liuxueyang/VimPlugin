@@ -111,9 +111,7 @@ call pathogen#runtime_append_all_bundles()
 if has('mac')
   set guifont=Monaco:h19
   let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'  "设置ctags命令的位置
-  let g:C_CCompiler = 'clang'
-  let g:C_CFlags  = '-std=c++11 -stdlib=libc++'
-  let g:C_CplusCompiler = 'clang++'
+
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
@@ -152,9 +150,11 @@ let g:pydoc_cmd = '/usr/bin/pydoc3.2'
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
 
-"csupport Customization"
+"cvim customization"
+""let g:C_CFlags='-std=c++11 -stdlib=libc++'
+""let g:C_CplusCompiler='/usr/bin/g++'
+""let g:C_VimCompilerName='/usr/bin/g++'
 let g:C_ExeExtension = '.exe'
-"let g:C_MapLeader  = ','
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
  
