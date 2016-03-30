@@ -22,4 +22,7 @@ The following picture is the my gvim:
 
 即使用Vim很久，然而还是能发现很多有意思的功能，这就是Vim的乐趣？ :joy::joy::joy:
 
+### Update on 03/25/16
+
+配置Powerline的字体参见`~/.vim/bundle/vim-powerline/fontpatcher/README.rst`即可。亲测Linux和Mac中的Vim和Gvim（MacVim）都可以。:joy::joy:
 

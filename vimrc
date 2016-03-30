@@ -1,8 +1,8 @@
 "Copyright 2013 Xueyang Liu, all rights reserved.
-"www.cnblogs.com/liuxueyang/
+"liuxueyang.github.io
 "Hunan University
 
-"Update 2015 Lpaste."
+"Update 2016/03/22 Lpaste"
 "liuxueyang.github.io
 
 " ********************SET********************
@@ -50,6 +50,7 @@ nnoremap <c-t> :NERDTree<cr>
 nnoremap <c-a> :Tlist<cr>
 vnoremap <leader>y "+y
 nmap <leader>p "+p
+nmap <leader>ay ggVG"+y<C-o><C-o>
 nmap <leader>q :q<CR>
 nmap <leader>xa :xa<CR>
 nmap <leader>w :w<CR>
@@ -93,9 +94,9 @@ function! ClosePair(char)
 endf
 
 " ********************OTHER********************
-iabbrev @@ www.cnblogs.com/liuxueyang/
-iabbrev ccopy Copyright 2013 Xueyang Liu, all rights reserved.
-autocmd BufWritePre *.html :normal gg=G
+iabbrev @@ liuxueyang.github.io
+"iabbrev ccopy Copyright 2015 Xueyang Liu, all rights reserved.
+"autocmd BufWritePre *.html :normal gg=G
 
 "pathogen{
 execute pathogen#infect()
@@ -106,11 +107,13 @@ call pathogen#runtime_append_all_bundles()
 if has('mac')
   set guifont=Monaco:h19
   let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'  "设置ctags命令的位置
+
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
   set guifont=Inconsolata\ 13
   let Tlist_Ctags_Cmd='/usr/bin/ctags'  "设置ctags命令的位置
+  let g:C_CFlags  = '-Wall -std=c++11 -g'
 endif
 
 "taglist{
@@ -136,14 +139,18 @@ let g:user_emmet_settings = {
 			\}
 
 let g:pydoc_cmd = '/usr/bin/pydoc3.2'
-map <leader>r :w<CR>:!python3 %<CR>
+""map <leader>r :w<CR>:!python3 %<CR>
 
 :nmap <Leader>we <Plug>VimwikiSplitLink
 :nmap <Leader>wq <Plug>VimwikiVSplitLink
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
+
+"cvim customization"
+""let g:C_CFlags='-std=c++11 -stdlib=libc++'
+""let g:C_CplusCompiler='/usr/bin/g++'
+""let g:C_VimCompilerName='/usr/bin/g++'
 let g:C_ExeExtension = '.exe'
-let g:C_CFlags  = '-Wall -Wc++11-extensions -g -o0'
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
  
@@ -213,6 +220,12 @@ let g:SignatureMap = {
 :let did_install_default_menus = 1
 "hi CursorLine ctermbg=Red guibg=#771c1c
 "hi CursorColumn ctermbg=Red guibg=#771c1c
+hi CursorLine ctermbg=LightBlue
+":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=darkred guifg=white
+":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:nnoremap <Leader>c :set cursorline!<CR> guibg=#771c1c
 
 "let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
 "\ 'path_html': '~/Dropbox/vimwiki_html/',
