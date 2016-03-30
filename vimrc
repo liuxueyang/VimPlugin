@@ -2,20 +2,17 @@
 "www.cnblogs.com/liuxueyang/
 "Hunan University
 
+"Update 2015 Lpaste."
+"liuxueyang.github.io
 
 " ********************SET********************
 color inkpot
-"color blue
-"color molokai
-"color solarized
-"color darkblue
+"color blue molokai solarized darkblue
 se background=dark
 "se background=light
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set nocompatible
-"set guifont=Monaco:h19
-"set guifont=Monospace\ 12
 set nu numberwidth=5
 set cindent
 set ai
@@ -217,11 +214,11 @@ let g:SignatureMap = {
 "hi CursorLine ctermbg=Red guibg=#771c1c
 "hi CursorColumn ctermbg=Red guibg=#771c1c
 
-""let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
-""\ 'path_html': '~/Dropbox/vimwiki_html/',
-""\ 'template_path': '~/Dropbox/vimwiki_template/',
-""\ 'template_default': 'def_template',
-""\ 'template_ext': '.html'}]
+"let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
+"\ 'path_html': '~/Dropbox/vimwiki_html/',
+"\ 'template_path': '~/Dropbox/vimwiki_template/',
+"\ 'template_default': 'def_template',
+"\ 'template_ext': '.html'}]
 
 let g:vimwiki_list = [{'path': '~/Blog/vimwiki/',
 \ 'path_html': '~/Blog/vimwiki_html/',
