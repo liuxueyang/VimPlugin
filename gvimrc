@@ -3,7 +3,8 @@ if has('mac')
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
-  set guifont=Inconsolata\ 13
+  "set guifont=Inconsolata\ 13
+  set guifont=Hermit\ 13
 endif
 
 if v:version > 700
