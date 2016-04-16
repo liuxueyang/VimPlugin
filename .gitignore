@@ -1,3 +1,3 @@
 .DS_Store
-bundle/vim-clang-format
-bundle/vim-operator-user
+./bundle/vim-clang-format/**
+./bundle/vim-operator-user/**
