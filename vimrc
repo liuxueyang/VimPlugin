@@ -113,6 +113,7 @@ iabbrev @@ Copyright 2016 Sabastian(liuxueyang.github.io),
 execute pathogen#infect()
 call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 "}
 
 if has('mac')
@@ -123,7 +124,8 @@ if has('mac')
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
-  set guifont=Inconsolata\ 13
+  "set guifont=Inconsolata\ 13
+  set guifont=Hermit\ 13
   let Tlist_Ctags_Cmd='/usr/bin/ctags'  "设置ctags命令的位置
   "let g:C_CFlags  = '-Wall -std=c++11 -g'
 endif
@@ -296,3 +298,27 @@ au FileType c ClangFormatAutoEnable
 nmap <Leader>fm :ClangFormat<CR>
 
 let g:Powerline_symbols = 'fancy'
+
+"Recognize modeline # vim: filetype=perl6
+set ml
+
+"check for a local vimrc
+if filereadable("~/vim/vimrc")
+  so ~/.vim/vimrc
+endif
+
+"check for Perl 6 code
+function! LooksLikePerl6 ()
+  if getline(1) =~# '^#!.*/bin/.*perl6'
+    set filetype=perl6
+  else
+    for i in [1,2,3,4,5]
+      if getline(i) == 'use v6;'
+        set filetype=perl6
+        break
+      endif
+    endfor
+  endif
+endfunction
+
+au bufRead *.pm,*.t,*.pl6 call LooksLikePerl6()
