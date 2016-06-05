@@ -2,14 +2,15 @@
 "liuxueyang.github.io
 "Hunan University
 
-"Update 2016/03/22 Lpaste"
-"Update 2016/04/06 Lpaste"
+"Updated on 2016/03/22 Lpaste"
+"Updated on 2016/04/06 Lpaste"
+"Updated on 2016/06/05 Sabastian"
 
 " ********************SET********************
 color inkpot
 "color blue molokai solarized darkblue
-se background=dark
-"se background=light
+"se background=dark
+se background=light
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set nocompatible
@@ -31,6 +32,7 @@ set cmdheight=2
 set nowrap
 "set foldmethod=indent
 set foldmethod=syntax
+"set foldmethod=manual
 set nofoldenable
 syntax on
 syntax enable
@@ -63,6 +65,14 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>on :only<CR>
 nnoremap <leader>k <C-w>k
 nnoremap <leader>j <C-w>j
+let b:comment_leader = '"'
+autocmd FileType vim noremap <silent> ,cm 
+      \:<C-B>silent <C-E>s/^/<C-R>=escape(
+      \b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+autocmd FileType vim noremap <silent> ,cu 
+      \:<C-B>silent <C-E>s/^\V<C-R>=escape(
+      \b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+nnoremap <Leader>hl :set cursorline!<CR> guibg=#771c1c
 nmap <leader>pa %
 "在某个单词上加上引号，括号
 "nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
@@ -75,14 +85,14 @@ inoremap <c-u> <esc>veU
 inoremap <D> <esc>
 imap <S-CR> <CR><CR>end<Esc>-cc
 "括号,引号自动补全
-:inoremap ( ()<esc>i
-:inoremap ) <c-r>=ClosePair(')')<cr>
-:inoremap { {}<esc>i
-:inoremap } <c-r>=ClosePair('}')<cr>
-:inoremap [ []<esc>i
-:inoremap ] <c-r>=ClosePair(']')<cr> 
-:inoremap " ""<esc>i
-:inoremap ' ''<esc>i
+inoremap ( ()<esc>i
+inoremap ) <c-r>=ClosePair(')')<cr>
+inoremap { {}<esc>i
+inoremap } <c-r>=ClosePair('}')<cr>
+inoremap [ []<esc>i
+inoremap ] <c-r>=ClosePair(']')<cr> 
+inoremap " ""<esc>i
+inoremap ' ''<esc>i
 onoremap p i(
 onoremap b /return<cr>
 
@@ -94,7 +104,8 @@ function! ClosePair(char)
 endf
 
 " ********************OTHER********************
-iabbrev @@ liuxueyang.github.io
+iabbrev @@ Copyright 2016 Sabastian(liuxueyang.github.io),
+      \ all rights reserved.
 "iabbrev ccopy Copyright 2015 Xueyang Liu, all rights reserved.
 "autocmd BufWritePre *.html :normal gg=G
 
@@ -106,23 +117,28 @@ call pathogen#runtime_append_all_bundles()
 
 if has('mac')
   set guifont=Monaco:h19
-  let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'  "设置ctags命令的位置
+  "设置ctags命令的位置
+  let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
   set guifont=Inconsolata\ 13
   let Tlist_Ctags_Cmd='/usr/bin/ctags'  "设置ctags命令的位置
-  let g:C_CFlags  = '-Wall -std=c++11 -g'
+  "let g:C_CFlags  = '-Wall -std=c++11 -g'
 endif
 
 "taglist{
 		let Tlist_File_Fold_Auto_Close=1
-    let Tlist_Show_One_File = 1            "只显示当前文件的taglist，默认是显示多个
-    let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一个窗口，则退出vim
+    let Tlist_Show_One_File = 1            "只显示当前文件
+          \的taglist，默认是显示多个
+    let Tlist_Exit_OnlyWindow = 1          "如果taglist是最后一
+          \个窗口，则退出vim
     let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
-    let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
-    nnoremap <leader>tl : Tlist<CR>        "设置关闭和打开taglist窗口的快捷键
+    let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留
+          \在taglist窗口
+    nnoremap <leader>tl : Tlist<CR>        "设置关闭和打开taglist窗
+          \口的快捷键
 "}
 
 let g:user_emmet_settings = {
@@ -141,14 +157,17 @@ let g:user_emmet_settings = {
 let g:pydoc_cmd = '/usr/bin/pydoc3.2'
 ""map <leader>r :w<CR>:!python3 %<CR>
 
-:nmap <Leader>we <Plug>VimwikiSplitLink
-:nmap <Leader>wq <Plug>VimwikiVSplitLink
+nmap <Leader>we <Plug>VimwikiSplitLink
+nmap <Leader>wq <Plug>VimwikiVSplitLink
 ":nmap <Leader>wt <Plug>VimwikiTabnewLink
 let NERDTreeWinSize=22
 
 "cvim customization"
-""let g:C_CFlags='-std=c++11 -stdlib=libc++'
-""let g:C_CplusCompiler='/usr/bin/g++'
+"fix <bits/stdc++.h> not found in Mac OS X"
+"Maybe I should add a if-else clause to get the OS type."
+"TODO: configure this for Linux"
+let g:C_CFlags='--std=c++1y -Wall'
+let g:C_CplusCompiler='/usr/local/bin/g++-5'
 ""let g:C_VimCompilerName='/usr/bin/g++'
 let g:C_ExeExtension = '.exe'
 
@@ -156,12 +175,16 @@ inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
  
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline
+        \(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')
+          \[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],
+          \'.*|\s*\zs.*'))
     Tabularize/|/l1
     normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',
+          \ position),'ce',line('.'))
   endif
 endfunction
 
@@ -170,7 +193,9 @@ endfunction
 
 "
 "added 2014/11/04
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ [%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ 
+      \[ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ 
+      \[%p%%]\ [LEN=%L]
 set laststatus=2
 hi LineNr ctermfg=101 ctermbg=16 term=none
 
@@ -181,11 +206,13 @@ let g:indent_guides_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=1
 let g:indent_guides_guide_size=1
-""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-""autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd 
+      \ guibg=red   ctermbg=3
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesEven 
+      \ guibg=green ctermbg=4
 ""hi IndentGuidesOdd  guibg=white   ctermbg=3
 ""hi IndentGuidesEven guibg=lightgrey ctermbg=4
-:nmap <silent> <leader>i <Plug>IndentGuidesToggle
+nmap <silent> <leader>i <Plug>IndentGuidesToggle
 
 nmap <leader>ch :A<CR>
 nmap <leader>sch :AS<CR>
@@ -216,16 +243,9 @@ let g:SignatureMap = {
   \ 'ListLocalMarkers'   :  "m?"
   \ }
 
-
 :let did_install_default_menus = 1
-"hi CursorLine ctermbg=Red guibg=#771c1c
-"hi CursorColumn ctermbg=Red guibg=#771c1c
-hi CursorLine ctermbg=LightBlue
-":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=black guibg=darkred guifg=white
-":hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-:nnoremap <Leader>c :set cursorline!<CR> guibg=#771c1c
+"hi CursorLine ctermbg=white ctermfg=black
+"hi CursorColumn ctermbg=white ctermfg=black
 
 "let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
 "\ 'path_html': '~/Dropbox/vimwiki_html/',
@@ -242,7 +262,8 @@ let g:vimwiki_list = [{'path': '~/Blog/vimwiki/',
 let g:vimwiki_camel_case = 0
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_CJK_length = 1
-let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
+let g:vimwiki_valid_html_tags=
+      \ 'b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 map <S-F4> :VimwikiAll2HTML<cr>
 map <F4> :Vimwiki2HTML<cr>
 
@@ -262,10 +283,13 @@ let g:clang_format#style_options = {
             \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf
+      \ :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf
+      \ :ClangFormat<CR>
 " if you install vim-operator-user
-autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+autocmd FileType c,cpp,objc map <buffer><Leader>x 
+      \ <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 au FileType c ClangFormatAutoEnable

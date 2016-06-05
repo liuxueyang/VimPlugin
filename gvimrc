@@ -6,11 +6,9 @@ else
   set guifont=Inconsolata\ 13
 endif
 
-if v:version > 700
+if v:version >= 700
 	set cursorline
   set cursorcolumn
-	hi CursorLine ctermbg=Red guibg=#771c1c
-	hi CursorColumn ctermbg=Red guibg=#771c1c
 "	call ExpextCursorSlowDown()
 endif
 "
@@ -37,6 +35,8 @@ let g:Powerline_colorscheme='solarized256'
 
 set vb t_vb=
 
-":match ErrorMsg /\%>70v.\+/
-"hi CursorLine ctermbg=LightGreen guibg=#771c1c
-"hi CursorColumn ctermbg=Red guibg=#771c1c
+match ErrorMsg /\%>70v.\+/
+hi CursorLine cterm=NONE ctermbg=lightblue ctermfg=black 
+      \ guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white 
+      \ guibg=darkred guifg=white
