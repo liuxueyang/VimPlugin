@@ -1,5 +1,5 @@
 if has('mac')
-  set guifont=Monaco:h19
+  set guifont=Hermit:h19
 elseif has('unix')
   set guifont=Inconsolata\ 13
 else
@@ -14,7 +14,9 @@ if v:version >= 700
 endif
 "
 "added 2014/11/04
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ [%p%%]\ [LEN=%L]
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ 
+      \[ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ 
+      \[%p%%]\ [LEN=%L]
 set laststatus=2
 
 map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
